@@ -1,8 +1,8 @@
-# Elden Ring: Nightreign — Seed Finder (Web / GitHub Pages)
+# Elden Ring: Nightreign — Seed Finder
 
 An interactive, responsive client-side web application designed to identify the exact hidden seed in an **Elden Ring: Nightreign** run within the first few minutes of gameplay.
 
-Knowing your seed early reveals the full 3-day map layout: spawn points, Night 1 and Night 2 boss locations, night circles, evergaols, major and minor bases, field bosses, merchants, and special events.
+Knowing your seed early reveals the full 3-day map layout: Night 1 and Night 2 bosses and their locations, evergaols, major and minor bases, field bosses, merchants, and special events.
 
 ---
 
