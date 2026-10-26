@@ -1,0 +1,45 @@
+{
+    "Minor Base": {
+        "Minor Base Above Stormhill Tunnel Entrance": [558, 616],
+        "Minor Base West of Warmaster's Shack": [334, 563],
+        "Minor Base Southeast of Lake": [875, 1240],
+        "Minor Base East of Cavalry Bridge": [841, 994],
+        "Minor Base Minor Erdtree": [1237, 894],
+        "Minor Base Below Summonwater Hawk": [1064, 563],
+        "Minor Base Third Church": [1216, 544],
+        "Minor Base Northeast of Saintsbridge": [822, 356]
+    },
+    "Major Base": {
+        "Major Base Stormhill North of Gate": [438, 696],
+        "Major Base Alexander Spot": [638, 472],
+        "Major Base Northwest Stormhill": [354, 440],
+        "Major Base Northeast Stormhill": [619, 285],
+        "Major Base South Mistwood": [1145, 1143],
+        "Major Base Waypoint Ruins": [943, 1070],
+        "Major Base Minor Erdtree": [1158, 977],
+        "Major Base West Mistwood": [967, 914],
+        "Major Base Northwest Mistwood": [1022, 725],
+        "Major Base Artist's Shack": [897, 670],
+        "Major Base Northeast Mistwood": [1189, 660],
+        "Major Base Summonwater Approach": [972, 464],
+        "Major Base Summonwater": [1097, 346]
+    },
+    "Field Boss": {
+        "Field Boss North of Stormhill Tunnel Entrance": [477, 580],
+        "Field Boss North of Murkwater Terminus": [721, 552],
+        "Field Boss Stormhill Spectral Hawk": [515, 372],
+        "Field Boss Northwest Stormhill Cliffside": [450, 302],
+        "Field Boss Mistwood Spectral Hawk": [1047, 1208],
+        "Field Boss North Mistwood": [1170, 783],
+        "Field Boss East of Murkwater Terminus": [844, 587],
+        "Field Boss Northwest of Summonwater": [972, 339]
+    },
+    "Evergaol": {
+        "Evergaol Murkwater Terminus": [682, 588],
+        "Evergaol Stormhill": [257, 488],
+        "Evergaol Highroad": [738, 305],
+        "Evergaol East of Lake": [952, 1179],
+        "Evergaol Mistwood": [1211, 750],
+        "Evergaol Northeast Tunnel Entrance": [969, 563]
+    }
+}

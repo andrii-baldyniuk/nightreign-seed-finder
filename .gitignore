@@ -1,0 +1,12 @@
+# Seed map images pack (optional offline pack, ~436 MB)
+images/patterns_by_nightlord/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Python bytecode & temp files
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/

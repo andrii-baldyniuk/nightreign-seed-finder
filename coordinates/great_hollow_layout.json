@@ -1,0 +1,106 @@
+{
+    "Spawn Point": {
+        "Southwest": [
+            296,
+            799
+        ],
+        "South": [
+            539,
+            933
+        ],
+        "Northeast": [
+            866,
+            289
+        ]
+    },
+    "Minor Base": {
+        "Minor Base South": [
+            423,
+            890
+        ],
+        "Minor Base South of Divine Tower": [
+            646,
+            472
+        ],
+        "Minor Base Underground": [
+            1110,
+            854
+        ],
+        "Minor Base West": [
+            430,
+            582
+        ]
+    },
+    "Major Base": {
+        "Southeast Ruin": [
+            1025,
+            987
+        ],
+        "West Ruin": [
+            300,
+            643
+        ],
+        "Northeast Great Church": [
+            934,
+            458
+        ],
+        "South Great Church": [
+            734,
+            1053
+        ],
+        "Northwest Castle": [
+            412,
+            312
+        ],
+        "Southeast Castle": [
+            770,
+            745
+        ]
+    },
+    "Field Boss": {
+        "Field Boss East of West Ruin": [
+            423,
+            678
+        ],
+        "Field Boss In Crystal Pillar": [
+            529,
+            645
+        ],
+        "Field Boss North of Crystal Pillar": [
+            540,
+            594
+        ],
+        "Field Boss North of West Ruin Lower": [
+            351,
+            567
+        ],
+        "Field Boss North of West Ruin Upper": [
+            281,
+            589
+        ],
+        "Field Boss Northernmost": [
+            558,
+            359
+        ],
+        "Field Boss South of Crystal Pillar": [
+            569,
+            738
+        ],
+        "Field Boss South of Divine Tower": [
+            723,
+            544
+        ],
+        "Field Boss Underground Center": [
+            1021,
+            914
+        ],
+        "Field Boss Underground East": [
+            1110,
+            950
+        ],
+        "Field Boss Underground North": [
+            1025,
+            791
+        ]
+    }
+}

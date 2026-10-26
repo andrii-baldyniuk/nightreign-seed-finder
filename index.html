@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Elden Ring: Nightreign Seed Finder</title>
+  <meta name="description" content="Interactive Seed Finder and Map Layout Filter for Elden Ring: Nightreign. Determine your expedition seed in seconds." />
+  <meta name="theme-color" content="#0b0d13" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="images/icons_shifting_earth/ERN_Shifting_Earth_Crater.png" type="image/png" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- ======================================================================
+         SCREEN 1: Context Selection (Nightlord & Shifting Earth)
+         ====================================================================== -->
+    <div id="screen-step1">
+      <header class="hero-header">
+        <div class="hero-subtitle">ELDEN RING: NIGHTREIGN</div>
+        <h1 class="hero-title">Seed Finder</h1>
+        <p class="hero-desc">
+          Identify your expedition layout, boss locations, circles, and evergaols
+          by narrowing candidate seeds through early in-game observations.
+        </p>
+      </header>
+
+      <!-- Nightlord Grid -->
+      <section class="selection-section">
+        <h2 class="section-label">Select Nightlord</h2>
+        <div id="grid-nightlords" class="card-grid grid-nightlords"></div>
+      </section>
+
+      <!-- Shifting Earth Grid -->
+      <section class="selection-section">
+        <h2 class="section-label">Select Shifting Earth Event</h2>
+        <div id="grid-shifting" class="card-grid grid-shifting"></div>
+      </section>
+
+      <!-- Proceed Button -->
+      <div class="step1-actions">
+        <button id="btn-proceed" class="btn btn-gold btn-proceed">
+          Start Seed Discovery →
+        </button>
+      </div>
+    </div>
+
+    <!-- ======================================================================
+         SCREEN 2: Interactive Deduction Map & Sidebar
+         ====================================================================== -->
+    <div id="screen-step2" style="display: none;">
+      
+      <!-- Top Navigation Bar -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button id="btn-back" class="btn btn-secondary" title="Return to Selection">
+            ← Back
+          </button>
+          <div id="candidate-badge" class="candidate-badge">
+            Candidates: 0
+          </div>
+        </div>
+
+        <div class="context-chips">
+          <div class="chip">Nightlord: <span id="chip-nightlord">—</span></div>
+          <div class="chip">Event: <span id="chip-shifting">—</span></div>
+        </div>
+
+        <div class="topbar-right">
+          <button id="btn-undo" class="btn btn-secondary" title="Undo Last Observation (Ctrl+Z)">
+            ↺ Undo
+          </button>
+          <button id="btn-clear-all" class="btn btn-secondary" title="Clear All Observations">
+            Clear
+          </button>
+        </div>
+      </header>
+
+      <!-- Main Workspace -->
+      <main class="workspace">
+        
+        <!-- Left Sidebar: Info & Observations -->
+        <aside class="sidebar">
+
+          <!-- Contradiction Alert Banner -->
+          <div id="contradiction-banner" class="contradiction-banner" style="display: none;">
+            <div class="contradiction-header">
+              ⚠️ Contradiction Detected!
+            </div>
+            <div class="contradiction-text">
+              No seeds match this observation combination. A POI may have been misidentified.
+            </div>
+            <button class="btn btn-danger btn-rollback">
+              ↺ Rollback Last Selection
+            </button>
+          </div>
+
+          <!-- Resolution Alert Banner -->
+          <div id="resolution-banner" class="resolution-banner" style="display: none;">
+            <div class="resolution-title">🎉 Seed Resolved!</div>
+            <div class="resolution-seed-id" id="resolved-seed-id">#000</div>
+            <button id="btn-copy-seed" class="btn btn-gold">
+              📋 Copy Seed ID
+            </button>
+            <button id="btn-toggle-map" class="btn btn-secondary">
+              📜 View Resolved Seed Map
+            </button>
+          </div>
+
+          <!-- Seed Parameters Card -->
+          <div class="sidebar-section">
+            <div class="sidebar-title">Expedition Info</div>
+            <div class="info-card" id="seed-info-rows">
+              <!-- Dynamically populated rows -->
+            </div>
+          </div>
+
+          <!-- Active Observations List -->
+          <div class="sidebar-section">
+            <div class="sidebar-title">
+              <span>Active Observations</span>
+            </div>
+            <div id="observations-list" class="observations-container">
+              <!-- Dynamically populated pills -->
+            </div>
+          </div>
+
+          <!-- Search / Quick Select Dropdown -->
+          <div class="sidebar-section">
+            <div class="sidebar-title">Quick Select POI</div>
+            <select id="poi-search-select" class="btn btn-secondary" style="width: 100%; text-align: left;">
+              <option value="">-- Quick Select POI --</option>
+            </select>
+          </div>
+
+        </aside>
+
+        <!-- Right Main Viewport: Pan/Zoom Map -->
+        <section class="map-viewport">
+          <div class="map-surface">
+            <div class="map-stage">
+              <img class="map-bg-image" src="" alt="Map Layout" draggable="false" />
+              <div class="map-overlay"></div>
+            </div>
+          </div>
+
+          <!-- On-Map Floating Controls -->
+          <div class="map-floating-controls">
+            <button id="btn-zoom-in" class="btn-icon" title="Zoom In (+)">+</button>
+            <button id="btn-zoom-out" class="btn-icon" title="Zoom Out (-)">−</button>
+            <button id="btn-reset-view" class="btn-icon" title="Reset View (Fit Map)">⟲</button>
+          </div>
+
+          <!-- Floating Tooltip -->
+          <div class="map-tooltip" style="display: none;"></div>
+
+          <!-- Floating POI Selection Popover -->
+          <div id="poi-popover" class="poi-popover" style="display: none;">
+            <div class="popover-header">
+              <span id="popover-title">Location</span>
+              <span id="popover-close" class="popover-close">✕</span>
+            </div>
+            <div id="popover-options" class="popover-options"></div>
+          </div>
+
+        </section>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
