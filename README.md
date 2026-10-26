@@ -4,7 +4,7 @@ A fast, interactive map companion for **Elden Ring: Nightreign** that identifies
 
 Knowing your seed early reveals the entire 3-day layout before the first circle closes:
 - **Night 1 & Night 2 Bosses** and their exact locations
-- **Major and Minor POIs**
+- **Major and Minor bases**
 - **Evergaols, Field Bosses, and Castle**
 - **Merchants** (Town, Scale-Bearing, and Legendary)
 - **Special Events & Invasions**
