@@ -93,3 +93,4 @@ By default, when a seed is uniquely resolved, the app streams that specific seed
 If you want **100% offline access** to all 518 full-resolution seed maps without internet access:
 1. Place the seed map images into `images/patterns_by_nightlord/<nightlord_lower>/<seed_id_3digit>.jpg`.
 2. The app will automatically detect and prioritize local files over the network fallback.
+

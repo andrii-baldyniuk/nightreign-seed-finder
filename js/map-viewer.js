@@ -472,3 +472,4 @@ export class MapViewer {
     this.surface.style.transform = `translate(${this.translateX}px, ${this.translateY}px) scale(${this.scale})`;
   }
 }
+
