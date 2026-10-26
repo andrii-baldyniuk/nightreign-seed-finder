@@ -1,6 +1,9 @@
 # Seed map images pack (optional offline pack, ~436 MB)
 images/patterns_by_nightlord/
 
+# Internal documentation
+_README.md
+
 # Operating System files
 .DS_Store
 Thumbs.db
