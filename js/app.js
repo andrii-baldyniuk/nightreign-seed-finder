@@ -43,7 +43,6 @@ export class App {
 
     this.ui.showScreen("step2");
     this.ui.updateHeader();
-    this.ui.populatePoiDropdown(this.engine);
     await this.onFilterChange();
   }
 

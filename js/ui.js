@@ -55,8 +55,6 @@ export class UIController {
     this.btnCopySeed = document.getElementById("btn-copy-seed");
     this.btnToggleMap = document.getElementById("btn-toggle-map");
 
-    this.poiSelect = document.getElementById("poi-search-select");
-
     // Popover
     this.popoverEl = document.getElementById("poi-popover");
     this.popoverTitle = document.getElementById("popover-title");
@@ -229,14 +227,6 @@ export class UIController {
       }
     });
 
-    // Quick POI search select dropdown
-    this.poiSelect.addEventListener("change", (e) => {
-      const col = e.target.value;
-      if (col) {
-        this.showPopoverForCol(col, e);
-        this.poiSelect.value = "";
-      }
-    });
   }
 
   showScreen(screen) {
@@ -361,28 +351,6 @@ export class UIController {
     }
   }
 
-  populatePoiDropdown(engine) {
-    this.poiSelect.innerHTML = '<option value="">-- Quick Select POI --</option>';
-    if (engine.filteredCandidates.length === 0) return;
-
-    // Collect all candidate columns that have variation
-    const firstRow = engine.filteredCandidates[0];
-    const candidateCols = Object.keys(firstRow).filter(
-      (c) =>
-        c !== "ID" &&
-        c !== "Nightlord" &&
-        c !== "Shifting Earth"
-    );
-
-    const sortedCols = candidateCols.sort();
-    sortedCols.forEach((col) => {
-      const opt = document.createElement("option");
-      opt.value = col;
-      opt.textContent = col;
-      this.poiSelect.appendChild(opt);
-    });
-  }
-
   // =========================================================================
   // Floating POI Popover
   // =========================================================================
@@ -466,13 +434,6 @@ export class UIController {
     this.popoverEl.style.left = `${Math.round(posX)}px`;
     this.popoverEl.style.top = `${Math.round(posY)}px`;
     this.popoverEl.style.visibility = "visible";
-  }
-
-  showPopoverForCol(col, event) {
-    const targetRect = event?.target?.getBoundingClientRect ? event.target.getBoundingClientRect() : null;
-    const x = targetRect ? targetRect.right + 10 : window.innerWidth / 2;
-    const y = targetRect ? targetRect.top : window.innerHeight / 2;
-    this.showPopover(col, "POI", x, y, targetRect);
   }
 
   hidePopover() {
