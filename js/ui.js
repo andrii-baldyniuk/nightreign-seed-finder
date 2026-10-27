@@ -387,7 +387,7 @@ export class UIController {
   // Floating POI Popover
   // =========================================================================
 
-  showPopover(name, category, clientX, clientY) {
+  showPopover(name, category, clientX, clientY, targetRect = null) {
     const options = this.app.engine.getAvailableOptionsForCol(name);
     if (options.length === 0) return;
 
@@ -411,31 +411,68 @@ export class UIController {
       this.popoverOptions.appendChild(optEl);
     });
 
-    this.popoverEl.style.display = "block";
+    // Display invisibly first to accurately measure rendered dimensions
+    this.popoverEl.style.visibility = "hidden";
+    this.popoverEl.style.display = "flex";
+    this.popoverEl.style.left = "0px";
+    this.popoverEl.style.top = "0px";
 
-    // Position popover safely inside viewport
     const popRect = this.popoverEl.getBoundingClientRect();
+    const popW = popRect.width;
+    const popH = popRect.height;
     const vw = window.innerWidth;
     const vh = window.innerHeight;
+    const margin = 12;
 
-    let posX = clientX + 12;
-    let posY = clientY + 12;
+    let posX, posY;
 
-    if (posX + popRect.width > vw - 16) {
-      posX = clientX - popRect.width - 12;
+    // 1. Calculate Horizontal Position (posX)
+    if (targetRect) {
+      // Prefer placing to the right of the marker
+      if (targetRect.right + 10 + popW <= vw - margin) {
+        posX = targetRect.right + 10;
+      } else if (targetRect.left - 10 - popW >= margin) {
+        // Flip to the left of the marker if right side overflows
+        posX = targetRect.left - 10 - popW;
+      } else {
+        // Screen is narrow or marker is centered; center popover
+        posX = Math.max(margin, (vw - popW) / 2);
+      }
+      posY = targetRect.top + targetRect.height / 2 - popH / 2;
+    } else {
+      // Position relative to click point
+      if (clientX + 14 + popW <= vw - margin) {
+        posX = clientX + 14;
+      } else if (clientX - 14 - popW >= margin) {
+        posX = clientX - 14 - popW;
+      } else {
+        posX = Math.max(margin, (vw - popW) / 2);
+      }
+      posY = clientY - popH / 2;
     }
-    if (posY + popRect.height > vh - 16) {
-      posY = vh - popRect.height - 16;
+
+    // 2. Adjust Vertical Position (posY) to stay within screen
+    if (posY + popH > vh - margin) {
+      posY = vh - popH - margin;
+    }
+    if (posY < margin) {
+      posY = margin;
     }
 
-    this.popoverEl.style.left = `${Math.max(16, posX)}px`;
-    this.popoverEl.style.top = `${Math.max(16, posY)}px`;
+    // 3. Strict clamping against viewport boundaries
+    posX = Math.max(margin, Math.min(vw - popW - margin, posX));
+    posY = Math.max(margin, Math.min(vh - popH - margin, posY));
+
+    this.popoverEl.style.left = `${Math.round(posX)}px`;
+    this.popoverEl.style.top = `${Math.round(posY)}px`;
+    this.popoverEl.style.visibility = "visible";
   }
 
   showPopoverForCol(col, event) {
-    const x = event.clientX || window.innerWidth / 2;
-    const y = event.clientY || window.innerHeight / 2;
-    this.showPopover(col, "POI", x, y);
+    const targetRect = event?.target?.getBoundingClientRect ? event.target.getBoundingClientRect() : null;
+    const x = targetRect ? targetRect.right + 10 : window.innerWidth / 2;
+    const y = targetRect ? targetRect.top : window.innerHeight / 2;
+    this.showPopover(col, "POI", x, y, targetRect);
   }
 
   hidePopover() {
