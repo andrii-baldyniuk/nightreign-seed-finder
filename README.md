@@ -54,8 +54,6 @@ As soon as the counter hits **1 candidate**:
   - Misidentified a mob or boss? Open the **Active Observations** list and click `✕` on any observation to cancel it without restarting.
   - Press `Ctrl + Z` (or `Cmd + Z` on Mac) to undo the last action.
   - If a combination yields 0 seeds, a **Contradiction Alert** pops up with a 1-click rollback button.
-* **Quick Select Sidebar**: Prefer using the keyboard over clicking the map? Use the **Quick Select POI** dropdown to search and select locations by name.
-
 ---
 
 ## 📱 Second Monitor & Mobile Use
