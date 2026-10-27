@@ -21,7 +21,8 @@ export class App {
     const viewportEl = document.querySelector(".map-viewport");
     this.mapViewer = new MapViewer(viewportEl, {
       onMarkerClick: (name, category, event) => {
-        this.ui.showPopover(name, category, event.clientX, event.clientY);
+        const targetRect = event?.target ? event.target.getBoundingClientRect() : null;
+        this.ui.showPopover(name, category, event.clientX, event.clientY, targetRect);
       },
       onSpawnClick: (spawnName) => {
         this.engine.addObservation("Spawn Point", spawnName);
