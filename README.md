@@ -58,13 +58,11 @@ As soon as the counter hits **1 candidate**:
 
 ---
 
-## 📱 Use as a Companion App (Second Monitor or Phone)
+## 📱 Second Monitor & Mobile Use
 
-This app is a **Progressive Web App (PWA)**, meaning you can install it as a standalone, borderless companion app:
-
-* **On PC (Chrome / Edge)**: Click the **Install** icon in the URL bar. It opens in its own borderless window with an Elden Ring taskbar icon—perfect for a second monitor while playing.
-* **On iPhone / iPad (Safari)**: Tap the **Share** button → **Add to Home Screen**.
-* **On Android (Chrome)**: Tap the three dots menu `⋮` → **Install app** or **Add to Home screen**.
+Because the app is lightweight and responsive, you can open the link in any browser without installing anything:
+* **On a Second Monitor**: Keep the website open beside your game window.
+* **On Phone or Tablet**: Open the link on an iPad or smartphone and prop it up next to your keyboard for easy touch controls while playing.
 
 ---
 
