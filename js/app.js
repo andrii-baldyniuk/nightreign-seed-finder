@@ -4,7 +4,7 @@
 
 import { SeedEngine } from "./engine.js";
 import { MapViewer } from "./map-viewer.js";
-import { UIController } from "./ui.js";
+import { UIController } from "./ui.js?v=20261027-1";
 
 export class App {
   constructor() {
