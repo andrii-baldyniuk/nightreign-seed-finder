@@ -226,7 +226,6 @@ export class UIController {
         this.btnToggleMap.textContent = "📜 View Resolved Seed Map";
       }
     });
-
   }
 
   showScreen(screen) {
