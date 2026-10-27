@@ -66,6 +66,35 @@ export class App {
   }
 }
 
+// Register Service Worker for PWA installation
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js").catch((err) => {
+      console.warn("Service worker registration failed:", err);
+    });
+  });
+}
+
+// Handle PWA installation prompt
+let deferredInstallPrompt = null;
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredInstallPrompt = e;
+  const installBtn = document.getElementById("btn-install-pwa");
+  if (installBtn) {
+    installBtn.style.display = "inline-flex";
+    installBtn.onclick = async () => {
+      if (!deferredInstallPrompt) return;
+      deferredInstallPrompt.prompt();
+      const choice = await deferredInstallPrompt.userChoice;
+      if (choice.outcome === "accepted") {
+        installBtn.style.display = "none";
+      }
+      deferredInstallPrompt = null;
+    };
+  }
+});
+
 // Bootstrap on DOM ready
 window.addEventListener("DOMContentLoaded", () => {
   const app = new App();
