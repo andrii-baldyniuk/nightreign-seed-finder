@@ -1,6 +1,6 @@
 # Elden Ring: Nightreign — Seed Finder
 
-A fast, interactive map companion for **Elden Ring: Nightreign** that identifies your expedition's hidden seed in the first few minutes of gameplay. 
+A fast, interactive map companion for **Elden Ring: Nightreign** that identifies your expedition's hidden seed in the first 2–3 minutes of gameplay. 
 
 Knowing your seed early reveals the entire 3-day layout before the first circle closes:
 - **Night 1 & Night 2 Bosses** and their exact locations
@@ -18,7 +18,7 @@ Knowing your seed early reveals the entire 3-day layout before the first circle 
 
 ---
 
-## 📖 How to Use (In-Game Routine)
+## 📖 How to Use (3-Minute In-Game Routine)
 
 ### 1. Set Your Run Context
 At the start of your run, open the tool and select:
@@ -29,13 +29,13 @@ At the start of your run, open the tool and select:
 ### 2. Enter 1–3 Observations
 As your squad drops in and explores the map:
 1. **Click your Spawn Point**: Look for the amber triangle pins (`▼`) on the map. Clicking your spawn point instantly eliminates **~80–90%** of candidate seeds!
-2. **Check a nearby POI**: As you run toward your first objective, check what spawned at a nearby Minor Base, Major Base, or Field Boss.
+2. **Check a nearby POI**: As you ride toward your first objective, check what spawned at a nearby Minor Base, Major Base, Evergaol, or Field Boss.
 3. **Click the POI Marker**: A popup will show **only the remaining possibilities** for that spot, along with how many candidate seeds match each option (e.g. `Ruins - Perfumer (2 seeds)`).
 4. Select what you see. The candidate counter in the top bar will update instantly.
 
 ### 3. Seed Resolved!
 As soon as the counter hits **1 candidate**:
-- The full expedition report unlocks on the left sidebar (Night Bosses, Castle, Events).
+- The full expedition report unlocks on the left sidebar (Night Bosses, Circles, Castle, Events).
 - The map automatically reveals the complete high-resolution expedition overview layout.
 - You can freely toggle between the **Resolved Seed Map** and the **Interactive Pin Map**.
 
